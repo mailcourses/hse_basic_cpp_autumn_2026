@@ -27,6 +27,8 @@ int toupper( int ch );
 3) Методы std::string можно посмотреть в [документации](https://en.cppreference.com/w/cpp/string/basic_string)
 
 ```c++
+#include <cassert>
+
 bool isEqual(std::string text1, std::string text2)
 {
     // ...
@@ -39,11 +41,20 @@ std::string convertTextToSound(std::string text)
 
 int main()
 {
-    std::string text1{"Ashcraft"};
-    std::string text2{"Ashcroft"};
-    assert( isEqual(text1, text2) );
+    {
+        std::string text1{"Ashcraft"};
+        std::string text2{"Ashcroft"};
+        assert( isEqual(text1, text2) );
 
-    assert( convertTextToSound("Ashcraft") == std::string{"A261"} );
+        assert( convertTextToSound("Ashcraft") == std::string{"A261"} );
+    }
+    {
+        std::string text1{"cat"};
+        std::string text2{"Ashcroft"};
+        assert( isEqual(text1, text2) );
+
+        assert( convertTextToSound("Ashcraft") == std::string{"A261"} );
+    }
 }
 ```
 
